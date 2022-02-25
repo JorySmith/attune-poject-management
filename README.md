@@ -11,3 +11,4 @@ LINK
 - React hooks, context, reducers, and routing   
 - NoSQL database storage with Firebase Firestore  
 - User authentication  
+- Hosting with Firebase  
