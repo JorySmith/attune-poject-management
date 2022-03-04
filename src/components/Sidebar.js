@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 
 // Styles and Images
-import '/.Sidebar.css'
+import './Sidebar.css'
 import DashboardIcon from '../assets/dashboard_icon.svg'
 import AddIcon from '../assets/add_icon.svg'
 
@@ -16,7 +16,8 @@ export default function Sidebar() {
         <nav className="links">
           <ul>
             <li>
-              <NavLink to='/'>
+              {/* Exact match for root links */}
+              <NavLink exact to='/'>
                 <img src={DashboardIcon} alt="dashboard icon" />
                 <span>Dashboard</span>
               </NavLink>
