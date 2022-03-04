@@ -20,10 +20,10 @@ export default function Navbar() {
           <span>Attune</span>
         </li>
         <li>
-          <Link to='/login'>Login</Link>
+          {!user && <Link to='/login'>Login</Link>}
         </li>
         <li>
-          <Link to='/signup'>Signup</Link>
+          {!user && <Link to='/signup'>Signup</Link>}
         </li>
         <li>
           {user && !isPending && <button className="btn" onClick={logout}>Logout</button>}
