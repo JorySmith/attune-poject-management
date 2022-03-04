@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSignup } from '../../hooks/useSignup'
 
 // Styles
 import './Signup.css'
@@ -10,11 +11,15 @@ export default function Signup() {
   const [displayName, setDisplayName] = useState('')
   const [thumbnail, setThumbnail] = useState(null)
   const [thumbnailError, setThumbnailError] = useState(null)
+  const { signup, isPending, error } = useSignup()
 
   // Form submit
   const handleSubmit = (e) => {
     // Prevent default action/page refresh after form submit
     e.preventDefault()
+
+    // Signup with firebase with useSignup custom hook
+    signup(email, password, displayName, thumbnail)
   }
 
   // Profile picture 
@@ -74,7 +79,11 @@ export default function Signup() {
           {/* Thumbnail validation error */}
           {thumbnailError && <div className='error'>{thumbnailError}</div>}
       </label>
-      <button className='btn'>Sign Up</button>
+      {/* Display signup button until user submits form */}
+      {!isPending && <button className='btn'>Sign Up</button>}     
+      {isPending && <button disabled className='btn'>Loading...</button>}             
+      {/* Display error if present */}
+      {error && <div className='error'>{error}</div>}
     </form>
   )
 }
