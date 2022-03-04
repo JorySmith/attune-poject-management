@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { projectAuth, projectFirebase } from '../firebase/config'
+import { projectAuth, projectFirestore } from '../firebase/config'
 import { useAuthContext } from './useAuthContext'
 
 export const useLogout = () => {
@@ -16,7 +16,7 @@ export const useLogout = () => {
       // Update user's online status in firebase to false
       // Store uid of user from useAuthContext
       const { uid } = user
-      await projectFirebase.collection('users')
+      await projectFirestore.collection('users')
         .doc(uid)
         .update( { online: false })
 
