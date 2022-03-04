@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Select from 'react-select'
 import { useCollection } from '../../hooks/useCollection'
 
@@ -20,14 +20,26 @@ export default function Create() {
   const [dueDate, setDueDate] = useState('')
   const [category, setCategory] = useState('')
   const [assignedUsers, setAssignedUsers] = useState([])
+  const [ users, setUsers ] = useState([])
+
   // React-Select: Users Options
   const { documents } = useCollection('users')
-  console.log(documents)
+
+  // Get list of registered users
+  useEffect(() => {
+    if (!documents) return;
+    const options = documents.map(user => {
+      return { value: user, label: user.displayName}
+    })
+    setUsers(options)
+
+  }, [documents])
+  
 
   const handleSubmit = (e) => {
     // Prevent form submit default action
     e.preventDefault()
-    console.log(name, details, dueDate, category.value)
+    console.log(name, details, dueDate, category.value, assignedUsers)
   }
 
 
@@ -69,9 +81,10 @@ export default function Create() {
         <label>
           <span>Assign To:</span>
           {/* select here */}
-          {/* <Select 
-            options={}
-          /> */}
+          <Select 
+            options={users}
+            onChange={(option) => setAssignedUsers(option)}
+            isMulti />
         </label>
         <button className='btn'>Add Project</button>
       </form>
