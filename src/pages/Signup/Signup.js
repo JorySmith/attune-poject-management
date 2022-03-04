@@ -9,9 +9,37 @@ export default function Signup() {
   const [password, setPassword] = useState('')
   const [displayName, setDisplayName] = useState('')
   const [thumbnail, setThumbnail] = useState(null)
+  const [thumbnailError, setThumbnailError] = useState(null)
+
+  // Form submit
+  const handleSubmit = (e) => {
+    // Prevent default action/page refresh after form submit
+    e.preventDefault()
+  }
+
+  // Profile picture 
+  const handleFileChange = (e) => {
+    setThumbnail(null)
+
+    // Store only the first image submitted in case user submits several
+    let submittedImage = e.target.files[0]
+
+    // File validation
+    // No image file submitted
+    if (!submittedImage) return setThumbnailError("Please submit an image")
+    // Not an image, check file.type property
+    if (!submittedImage.type.includes('image')) return setThumbnailError("Please submit an image")
+    // Image too big, over 100kb, check file.size property
+    if (submittedImage.size > 100000) return setThumbnailError("Please submit an image that's smaller than 100kb")
+    
+    // Validation passes, update error and thumbnail states
+    setThumbnailError(null)
+    setThumbnail(submittedImage)
+
+  }
 
   return (
-    <form className='auth-form'>
+    <form className='auth-form' onSubmit={handleSubmit}>
       <h2>Sign Up</h2>
       <label>
         <span>Email:</span>
@@ -41,7 +69,10 @@ export default function Signup() {
         <span>Profile Picture:</span>
         <input 
           required 
-          type="file" />
+          type="file"
+          onChange={handleFileChange} />
+          {/* Thumbnail validation error */}
+          {thumbnailError && <div className='error'>{thumbnailError}</div>}
       </label>
       <button className='btn'>Sign Up</button>
     </form>
