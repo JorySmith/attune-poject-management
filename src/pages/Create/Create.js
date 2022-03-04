@@ -1,7 +1,18 @@
 import { useState } from 'react'
+import Select from 'react-select'
+import { useCollection } from '../../hooks/useCollection'
 
 // Styles
 import './Create.css'
+
+// React-Select Package: Category Options 
+const categories = [
+  { value: 'development', label: 'Development' },
+  { value: 'design', label: 'Design' },
+  { value: 'sales', label: 'Sales' },
+  { value: 'marketing', label: 'Marketing' }
+]
+
 
 export default function Create() {
   const [name, setName] = useState('')
@@ -9,11 +20,14 @@ export default function Create() {
   const [dueDate, setDueDate] = useState('')
   const [category, setCategory] = useState('')
   const [assignedUsers, setAssignedUsers] = useState([])
+  // React-Select: Users Options
+  const { documents } = useCollection('users')
+  console.log(documents)
 
   const handleSubmit = (e) => {
     // Prevent form submit default action
     e.preventDefault()
-    console.log(name, details, dueDate)
+    console.log(name, details, dueDate, category.value)
   }
 
 
@@ -47,11 +61,17 @@ export default function Create() {
         </label>
         <label>
           <span>Project Category:</span>
-          {/* select here */}
+          {/* React-Select categories here */}
+          <Select
+            options={categories}
+            onChange={(option) => setCategory(option)} />
         </label>
         <label>
           <span>Assign To:</span>
           {/* select here */}
+          {/* <Select 
+            options={}
+          /> */}
         </label>
         <button className='btn'>Add Project</button>
       </form>
