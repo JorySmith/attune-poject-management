@@ -3,18 +3,20 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 // Styles
 import './App.css'
 
-// Pages/Components
+// Pages and Components
 import Dashboard from './pages/Dashboard/Dashboard'
 import Create from './pages/Create/Create'
 import Login from './pages/Login/Login'
 import Signup from './pages/Signup/Signup'
 import Project from './pages/Project/Project'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <div className="container">
+          <Navbar />
           <Switch>
             {/* force exact route match, 'exact' attribute for route */}
             <Route exact path='/'>
