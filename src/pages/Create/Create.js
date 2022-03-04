@@ -20,7 +20,8 @@ export default function Create() {
   const [dueDate, setDueDate] = useState('')
   const [category, setCategory] = useState('')
   const [assignedUsers, setAssignedUsers] = useState([])
-  const [ users, setUsers ] = useState([])
+  const [users, setUsers] = useState([])
+  const [formError, setFormError] = useState(null)
 
   // React-Select: Users Options
   const { documents } = useCollection('users')
@@ -39,9 +40,14 @@ export default function Create() {
   const handleSubmit = (e) => {
     // Prevent form submit default action
     e.preventDefault()
+    setFormError(null)
+
+    // If no category selected or no users to be assigned, return error
+    if (!category) return setFormError('Please select a project category')
+    if (assignedUsers.length < 1) return setFormError('Please assign the project to at least one user')
+
     console.log(name, details, dueDate, category.value, assignedUsers)
   }
-
 
   return (
     <div className='create-form'>
@@ -80,13 +86,14 @@ export default function Create() {
         </label>
         <label>
           <span>Assign To:</span>
-          {/* select here */}
+          {/* React-Select users here, ensure isMulti attribute */}
           <Select 
             options={users}
             onChange={(option) => setAssignedUsers(option)}
             isMulti />
-        </label>
+        </label>        
         <button className='btn'>Add Project</button>
+        {formError && <div className='error'>{formError}</div>}
       </form>
     </div>
   )
