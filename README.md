@@ -7,7 +7,7 @@ A full stack React web application. Attune enables colleagues to collaborate on 
 LINK  
 
 ### Features
-- Dashboard of projects and tasks  
+- Track projects, assign tasks, coordinate issues  
 - User authentication via Firebase  
 - Track online/offline users  
 - React hooks, context, reducers, and routing   

@@ -79,6 +79,7 @@ export default function Signup() {
           {/* Thumbnail validation error */}
           {thumbnailError && <div className='error'>{thumbnailError}</div>}
       </label>
+      {/* Buttons */}
       {/* Display signup button until user submits form */}
       {!isPending && <button className='btn'>Sign Up</button>}     
       {isPending && <button disabled className='btn'>Loading...</button>}             
