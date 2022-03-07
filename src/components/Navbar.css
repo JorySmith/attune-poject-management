@@ -19,10 +19,9 @@
     margin-right: auto;
   }
   .navbar .logo img {
-    margin-right: 10px;
-    filter: invert(25%);
+    margin-right: 4px;
     width: 36px;
-    margin-top: -8px;
+    border-radius: 10px;
   }
   .navbar a {
     color: #333;

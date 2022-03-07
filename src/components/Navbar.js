@@ -4,7 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 // Styles and Images
 import "./Navbar.css";
-import Temple from "../assets/temple.svg";
+import Logo from "../assets/attune-logo.png";
 
 export default function Navbar() {
   // Import useLogout custom hook and its functionality 
@@ -14,11 +14,15 @@ export default function Navbar() {
 
   return (
     <div className="navbar">
-      <ul>
+      <ul>        
         <li className="logo">
-          <img src={Temple} alt="attune logo" />
-          <span>Attune</span>
-        </li>
+          <Link to='/'>       
+            <img src={Logo} alt="attune logo" />
+          </Link> 
+          <Link to='/'>
+            <span>Attune</span>
+          </Link>                            
+        </li>        
         <li>
           {!user && <Link to='/login'>Login</Link>}
         </li>
