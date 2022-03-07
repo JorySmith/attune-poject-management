@@ -1,6 +1,6 @@
 # Attune - Project Management Software
 
-A full stack React web application. Attune enables colleagues to collaborate on projects, assign tasks, and share ideas/comments.  
+A full stack project management web application where users can track IT projects, filter dynamically, assign tasks, and post comments from authenticated users.  
 
 ## Live Demo
 
