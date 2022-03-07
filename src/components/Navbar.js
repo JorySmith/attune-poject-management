@@ -20,7 +20,7 @@ export default function Navbar() {
             <img src={Logo} alt="attune logo" />
           </Link> 
           <Link to='/'>
-            <span>Attune</span>
+            <span>Attune - Project Management Software</span>
           </Link>                            
         </li>        
         <li>
