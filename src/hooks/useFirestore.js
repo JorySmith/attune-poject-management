@@ -68,8 +68,6 @@ export const useFirestore = (collection) => {
       dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
       return  null
     }
-
-
   }
 
   // Delete a document
@@ -90,5 +88,4 @@ export const useFirestore = (collection) => {
   }, [])
 
   return { addDocument, deleteDocument, updateDocument, response }
-
 }

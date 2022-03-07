@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { timestamp } from "../../firebase/config"
 import { useAuthContext } from "../../hooks/useAuthContext"
+import { useFirestore } from "../../hooks/useFirestore"
 
-export default function ProjectComments() {
+export default function ProjectComments({ project }) {
   const [newComment, setNewComment] = useState('')
   const { user } = useAuthContext()
+  const { updateDocument, response } = useFirestore('projects')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     // Store submitted comment
     const comment = {
@@ -16,7 +18,14 @@ export default function ProjectComments() {
       createdAt: timestamp.fromDate(new Date()),
       id: Math.random()
     }
-    console.log(comment)
+    
+    // Update firebase document comments array with the new comment
+    // Take current comment state via spread operator, add new comment
+    await updateDocument(project.id, {
+      comments: [...project.comments, comment]
+    })
+    // Error handling, clear add a comment textarea to a blank string
+    if (!response.error) setNewComment('')
   }
 
   return (
