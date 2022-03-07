@@ -8,6 +8,7 @@ LINK
 
 ### Features
 - Track projects, assign tasks, coordinate issues  
+- Create, Read, Update, and Delete (CRUD) functionality based on frontend user validation and Firebase rules  
 - User authentication via Firebase  
 - NoSQL database storage with Firebase Firestore  
 - Dynamic project filtering  

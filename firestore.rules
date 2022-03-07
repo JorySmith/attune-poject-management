@@ -7,3 +7,13 @@ service cloud.firestore {
     }
   }
 }
+
+// Security and authentication:
+
+// Users collection
+// - authenticated users can read and write
+// - only users who created a document can update it (per user.id match)
+
+// Projects collection
+// - authetnicated users can create, read, and update documents
+// - only users who create a document can delete it (per doc.createdBy match)
