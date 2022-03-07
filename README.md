@@ -4,7 +4,7 @@ A full stack React web application. Attune enables colleagues to collaborate on 
 
 ## Live Demo
 
-LINK  
+https://attune-project-management.web.app/  
 
 ### Features
 - Track projects, assign tasks, coordinate issues  
@@ -16,3 +16,4 @@ LINK
 - React hooks including useContext, useReducer, useRef, useState, and useEffect  
 - React Router Dom routing with BrowserRouter, Redirect, Switch, Route, Link, useHistory, and useParams   
 - Conditional UI rendering using JSX  
+- Deployment to and hosting on Firebase  
