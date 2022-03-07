@@ -11,5 +11,6 @@ LINK
 - User authentication via Firebase  
 - NoSQL database storage with Firebase Firestore 
 - Track users' online/offline status in realtime   
-- React hooks, context, reducers, routing, and redirecting   
+- React hooks including context, reducer, state, and effect  
+- React Router Dom routing and redirecting   
 - Hosting with Firebase  
