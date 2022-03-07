@@ -3,6 +3,7 @@ import Avatar from "../../components/Avatar"
 import { timestamp } from "../../firebase/config"
 import { useAuthContext } from "../../hooks/useAuthContext"
 import { useFirestore } from "../../hooks/useFirestore"
+import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
 export default function ProjectComments({ project }) {
   const [newComment, setNewComment] = useState('')
@@ -41,7 +42,10 @@ export default function ProjectComments({ project }) {
             </div>
             <p>{comment.displayName}</p>
             <div className="comment-date">
-              <p>{comment.createdAt.toDate().toDateString("")}</p>  
+              <p>
+                <span>{comment.createdAt.toDate().toDateString("")}</span>
+                <span> ({formatDistanceToNow(comment.createdAt.toDate(), { addSuffix: true })})</span>                
+              </p>  
             </div>
             <div className="comment-content">
               <p>{comment.content}</p>
