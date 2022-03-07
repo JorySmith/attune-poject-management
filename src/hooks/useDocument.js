@@ -14,10 +14,15 @@ export default function useDocument(collection, id) {
     // onSnapshot returns an unsubscribe function, store it to be used later as a clean up function
     // It also returns a snapshot of the data and an error message if present
     const unsubscribe = ref.onSnapshot(snapshot => {
-      // Spread snapshot data object into document state
-      // Also pass in snapshot id
-      setDocument({...snapshot.data(), id: snapshot.id})
-      setError(null) 
+      // Doc validation and error handling
+      if (!snapshot.data()) {
+        setError("That project does not exist")
+      } else {
+        // Spread snapshot data object into document state
+        // Also pass in snapshot id
+        setDocument({...snapshot.data(), id: snapshot.id})
+        setError(null) 
+      }      
     }, (err) => {
       console.log(err.message)
       setError("Failed to get the document")
