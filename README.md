@@ -9,8 +9,7 @@ LINK
 ### Features
 - Track projects, assign tasks, coordinate issues  
 - User authentication via Firebase  
-- NoSQL database storage with Firebase Firestore 
+- NoSQL database storage with Firebase Firestore  
 - Track users' online/offline status in realtime   
-- React hooks including context, reducer, state, and effect  
-- React Router Dom routing and redirecting   
-- Hosting with Firebase  
+- React hooks including useContext, useReducer, useRef, useState, and useEffect  
+- React Router Dom routing with BrowserRouter, Redirect, Switch, Route, Link, useHistory, and useParams   

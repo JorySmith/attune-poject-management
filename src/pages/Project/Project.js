@@ -1,3 +1,7 @@
+import { useParams } from 'react-router-dom'
+
+
+// Styles
 import './Project.css'
 
 export default function Project() {
