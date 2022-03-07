@@ -18,29 +18,35 @@ export default function Login() {
 
   return (
     <form className='auth-form' onSubmit={handleSubmit}>
-    <h2>Login</h2>
-    <label>
-      <span>Email:</span>
-      <input 
-        required 
-        type="email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email} />
-    </label>
-    <label>
-      <span>Password:</span>
-      <input 
-        required 
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password} />
-    </label> 
-    {/* Buttons */}
-    {/* Display login button until user submits form */}
-    {!isPending && <button className='btn'>Login</button>}     
-    {isPending && <button className='btn' disabled>Logging in...</button>}    
-    {/* Display error if present */}
-    {error && <div className='error'>{error}</div>}
-  </form>
+      <h2>Login</h2>
+      <label>
+        <span>Email:</span>
+        <input 
+          required 
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email} />
+      </label>
+      <label>
+        <span>Password:</span>
+        <input 
+          required 
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password} />
+      </label> 
+      {/* Buttons */}
+      {/* Display login button until user submits form */}
+      {!isPending && <button className='btn'>Login</button>}     
+      {!isPending && (
+        <button 
+          className='btn guest-btn'
+          onClick={() => {
+            setEmail('guest@admin.com')
+            setPassword('fdsa4321')}}>Guest Login</button>)}    
+      {isPending && <button className='btn' disabled>Logging in...</button>}    
+      {/* Display error if present */}
+      {error && <div className='error'>{error}</div>}
+    </form>
   )
 }
