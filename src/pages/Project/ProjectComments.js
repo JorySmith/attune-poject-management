@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { timestamp } from "../../firebase/config"
-import useAuthContext from "../../hooks/useAuthContext"
+import { useAuthContext } from "../../hooks/useAuthContext"
 
 export default function ProjectComments() {
   const [newComment, setNewComment] = useState('')
@@ -28,7 +28,7 @@ export default function ProjectComments() {
           <span>Add A Comment:</span>
           <textarea 
             required 
-            onChange={e => setAddComment(e.target.value)}
+            onChange={e => setNewComment(e.target.value)}
             value={newComment}></textarea>
         </label>
         <button className="btn">Submit Comment</button>   
