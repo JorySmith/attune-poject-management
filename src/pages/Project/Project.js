@@ -11,6 +11,7 @@ export default function Project() {
   // Use useParams to get project id to retrieve project from DB
   const { id } = useParams()
   // Use project id to retrieve document with useDocument custom hook
+  // useDocument add a realtime listener as wel
   const { document, error } = useDocument('projects', id)
 
   // Error handling and loading 
