@@ -4,9 +4,9 @@
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
+  background: no-repeat center;
 }
 
 .avatar img {
-  width: 100%;
-  height: 100%;
+  width: 115%;
 }
