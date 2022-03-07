@@ -8,7 +8,7 @@ let initialState = {
   success: null
 }
 
-// 
+// Custom reducer function passed to useReducer
 const firestoreReducer = (state, action) => {
   switch (action.type) {
     case 'IS_PENDING':

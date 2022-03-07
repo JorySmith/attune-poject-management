@@ -3,6 +3,8 @@ import Select from 'react-select'
 import { timestamp } from '../../firebase/config'
 import { useCollection } from '../../hooks/useCollection'
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { useFirestore } from '../../hooks/useFirestore'
+import { useHistory } from 'react-router-dom'
 
 
 // Styles
@@ -25,11 +27,15 @@ export default function Create() {
   const [assignedUsers, setAssignedUsers] = useState([])
   const [users, setUsers] = useState([])
   const [formError, setFormError] = useState(null)
+  // Create instance of useHistory
+  const history = useHistory()
   
   // Store list of registered users
   const { user } = useAuthContext()
   // React-Select: Users Options
   const { documents } = useCollection('users')
+  // Add projects/documents, include reducer response and document name 'projects'
+  const { addDocument, response } = useFirestore('projects')
 
   // Get list of registered users
   useEffect(() => {
@@ -42,7 +48,7 @@ export default function Create() {
   }, [documents])
   
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // Prevent form submit default action (page refresh)
     e.preventDefault()
     setFormError(null)
@@ -68,7 +74,7 @@ export default function Create() {
       }
     })
 
-    // Save project to firestore DB
+    // Save project/document to firestore DB via useFirestore addDocument
     // Use firebase timestamp for new Date(dueDate)
     const project = {
       name,
@@ -80,7 +86,12 @@ export default function Create() {
       assignedUsersList
     }
 
-    console.log(project)
+    await addDocument(project)
+
+    // If no response error, redirect to dashboard via useHistory
+    if (!response.error) history.push('/')
+
+
   }
 
   return (
