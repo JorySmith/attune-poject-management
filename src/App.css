@@ -1,5 +1,7 @@
 .App {
-  /* display: relative; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .App .container{
   display: flex;
