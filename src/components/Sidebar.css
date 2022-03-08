@@ -27,6 +27,7 @@
   padding: .5em;
   top: 0px;
   left: 300px;
+  box-shadow: 0 0 4px var(--text-color);
   cursor: pointer;
   transition: transform .4s ease-in-out;
 }
@@ -80,4 +81,23 @@
 }
 #sidebar .links .active img {
   filter: invert(40%);
+}
+@media only screen and (min-width: 1000px) {
+  #sidebar {
+    width: 300px;
+    min-width: 300px;
+    background: var(--primary-color);
+    min-height: 100vh;
+    box-sizing: border-box;
+    position: fixed;
+    color: #fff;
+    transform: translateX(0px);
+  }
+  .sidebar-content {
+    position: fixed;
+    width: inherit;
+  }
+  #menu {
+    display: none;
+  }
 }

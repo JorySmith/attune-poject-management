@@ -2,9 +2,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 1700px;
 }
 .App .container{
   display: flex;
   flex-direction: column;
   padding: 0 5px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .App {
+    flex-direction: row;
+    align-items: start;
+  }
+  .App .container{
+    margin-left: 300px;
+    padding: 0 60px;
+    max-width: 1200px;
+  }
 }

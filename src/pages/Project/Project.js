@@ -5,8 +5,6 @@ import ProjectComments from './ProjectComments'
 
 // Styles
 import './Project.css'
-import { Link } from 'react-router-dom'
-
 
 export default function Project() {
   // Use useParams to get project id to retrieve project from DB
@@ -20,12 +18,8 @@ export default function Project() {
   if (!document) return <div className='loading'>Loading project...</div>
 
   return (
-    <div className='project-details'>
-      <h4>Project Details</h4>
-      <ProjectSummary project={document} />
-      <Link to={'/'}>
-        <button className='btn'>⇐ Back to Dashboard</button>
-      </Link>      
+    <div className='project-details'>      
+      <ProjectSummary project={document} />      
       <ProjectComments project={document} />
     </div>
   )

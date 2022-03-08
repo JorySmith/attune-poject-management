@@ -2,6 +2,7 @@
   width: 250px;
   min-width: 250px;
   padding: 30px;
+  margin-top: 1em;
   box-sizing: border-box;
   background: #fbfbfb;
   color: var(--heading-color);
