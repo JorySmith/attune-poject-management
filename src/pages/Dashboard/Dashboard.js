@@ -49,7 +49,7 @@ export default function Dashboard() {
       {error && <p className='error'>{error}</p>}
       {projects && (
         <ProjectFilter filterOption={filterOption} changeFilter={changeFilter}/>)}
-      {projects && <ProjectList projects={projects} />}
+      {projects && <ProjectList projects={projects} />}      
     </div>
   )
 }

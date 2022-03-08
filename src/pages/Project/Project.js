@@ -5,6 +5,7 @@ import ProjectComments from './ProjectComments'
 
 // Styles
 import './Project.css'
+import { Link } from 'react-router-dom'
 
 
 export default function Project() {
@@ -20,7 +21,11 @@ export default function Project() {
 
   return (
     <div className='project-details'>
+      <h4>Project Details</h4>
       <ProjectSummary project={document} />
+      <Link to={'/'}>
+        <button className='btn'>⇐ Back to Dashboard</button>
+      </Link>      
       <ProjectComments project={document} />
     </div>
   )

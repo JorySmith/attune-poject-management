@@ -14,13 +14,13 @@ export default function Navbar() {
 
   return (
     <div className="navbar">
-      <ul>        
-        <li className="logo">
+      <ul className="ps-2">        
+        <li className="logo text-center">
           <Link to='/'>       
             <img src={Logo} alt="attune logo" />
           </Link> 
           <Link to='/'>
-            <span>Attune - Project Management Software</span>
+            <span className="text-center">Attune - Project Management Software</span>
           </Link>                            
         </li>        
         <li>

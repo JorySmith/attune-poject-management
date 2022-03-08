@@ -10,7 +10,7 @@ export default function ProjectFilter({ filterOption, changeFilter }) {
   return (
     <div className="project-filter">
       <nav>
-        <p>Filter Projects By:</p>
+        <p className="">Filter Projects By:</p>
         {/* Display filter options, apply active class to applicable button */}
         {filterList.map(option => (
           <button 

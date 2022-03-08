@@ -1,16 +1,20 @@
 .project-list {
-  margin-top: 40px;
+  margin-top: 15px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 15px;
 }
 .project-list a {
   background-color: #fff;
-  padding: 16px;
+  padding: 15px;
   border-radius: 6px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
   text-decoration: none;
   color: inherit;
+}
+
+.project-list a:last-child {
+  margin-bottom: 15px;
 }
 .project-list h4 {
   font-size: 0.9em;

@@ -1,8 +1,7 @@
 .project-details {
   display: grid;
-  grid-template-columns: 3fr 2fr;
   align-items: start;
-  grid-gap: 60px;
+  grid-gap: 15px;
 }
 
 /* project summary */
@@ -13,18 +12,18 @@
 }
 .project-summary .due-date {
   margin: 10px 0;
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: var(--title-color);
 }
 .project-summary .details {
   margin: 30px 0;
   color: var(--text-color);
   line-height: 1.8em;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 .project-summary h4 {
   color: var(--text-color);
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 .project-summary .assigned-users {
   display: flex;
@@ -76,4 +75,7 @@
 .comment-content {
   color: var(--text-color);
   font-size: 0.9em;
+}
+.add-comment .btn {
+  margin-bottom: 15px;
 }

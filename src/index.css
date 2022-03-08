@@ -26,9 +26,12 @@ ul {
 
 /* Layout */
 .page-title {
-  font-size: 1em;
+  font-size: 1.3em;
   color: var(--heading-color);
   display: inline-block;
+}
+.project-creator {
+  font-size: .75em;
 }
 .btn {
   background: #fff;

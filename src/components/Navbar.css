@@ -2,7 +2,6 @@
     width: 100%;
     padding: 30px 0;
     box-sizing: border-box;
-    margin-bottom: 80px;
   }
   .navbar ul {
     display: flex;
@@ -26,5 +25,5 @@
   .navbar a {
     color: #333;
     text-decoration: none;
-    margin-right: 20px;
+    padding-right: 10px;
   }
