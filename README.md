@@ -1,6 +1,6 @@
 # Attune - Project Management Software
 
-A full stack project management web application where users can track IT projects, filter dynamically, assign tasks, and post comments from authenticated users. Built with React, JavaScript, Firebase, Firestorm, Bootstrap, HTML, and CSS.  
+A full stack project management web application where users can track IT projects, filter dynamically, assign tasks, and post comments from authenticated users. Built with React, JavaScript, Firebase, Firestore, Bootstrap, HTML, and CSS.  
 
 ## Live Demo
 
